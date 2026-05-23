@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Triple M Insurance</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 64px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav ul li a.active {
+            color: #4285F4;
+            font-weight: 600;
+        }
+
+        .contact-btn {
+            background-color: #4285F4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Page title */
+        .page-title {
+            background-color: #4285F4;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .page-title h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About section */
+        .about-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .about-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-intro h2 {
+            color: #4285F4;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .why-choose-us {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+
+        .why-choose-us h2 {
+            text-align: center;
+            color: #4285F4;
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .feature {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature h3 {
+            display: flex;
+            align-items: center;
+            color: #4285F4;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .feature h3 span {
+            background-color: #4285F4;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .slogan {
+            text-align: center;
+            margin: 60px 0;
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            font-style: italic;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .contact-info p svg {
+            vertical-align: middle;
+            margin-right: 10px;
+            color: #4285F4;
+        }
+
+        .cta-button {
+            display: block;
+            width: max-content;
+            margin: 40px auto;
+            background-color: #4285F4;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3367d6;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            width: 30%;
+            margin-bottom: 20px;
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #4285F4;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #4285F4;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #4285F4;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                margin-bottom: 15px;
+            }
+
+            .page-title {
+                padding: 40px 20px;
+            }
+
+            .footer-section {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .feature {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="tripplem-logo.png" alt="Triple M Insurance Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <!-- <li><a href="#">Products</a></li> -->
+                <li><a href="about.html" class="active">About</a></li>
+                <!-- <li><a href="#">Blog</a></li> -->
+            </ul>
+        </nav>
+        <a href="contact.html" class="contact-btn">Contact Us</a>
+    </header>
+
+    <section class="page-title">
+        <h1>About Us</h1>
+        <p>Learn more about Triple M Insurance and our commitment to providing reliable insurance solutions.</p>
+    </section>
+
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-intro">
+                <h2>Welcome to Triple M Insurance</h2>
+                <p>
+                    At Triple M Insurance, we believe that insurance should be simple, reliable, and tailored to your unique needs. 
+                    As a trusted brokerage firm, we offer a wide range of insurance solutions—including health, auto, home, business, 
+                    and more, ensuring that you, your loved ones, and your assets are always protected.
+                </p>
+            </div>
+
+            <div class="why-choose-us">
+                <h2>Why Choose Us?</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3><span>✓</span> Expert Guidance</h3>
+                        <p>We help you find the best insurance coverage at the right price. Our team of experienced professionals 
+                        understands the complex world of insurance and can guide you through the process of selecting the most suitable 
+                        options for your specific situation.</p>
+                    </div>
+
+                    <div class="feature">
+                        <h3><span>✓</span> Personalized Service</h3>
+                        <p>Your needs come first, and we provide customized solutions. We take the time to understand your individual 
+                        requirements and circumstances, ensuring that the insurance plans we recommend are perfectly aligned with 
+                        your goals and budget.</p>
+                    </div>
+
+                    <div class="feature">
+                        <h3><span>✓</span> Trust & Transparency</h3>
+                        <p>We build long-term relationships based on honesty and integrity. Our commitment to transparency means 
+                        that you'll always understand exactly what you're paying for, with no hidden fees or confusing terms. 
+                        We prioritize your trust above all else.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slogan">
+                "Your Trusted Partner in Insurance."
+            </div>
+
+            <div class="contact-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    info@triplem-insurance.com
+                </p>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    +961 7 231420
+                </p>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Lebaa-Jezzine, South Lebanon
+                </p>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                    +961 3 272684
+                </p>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    www.triplem-insurance.com
+                </p>
+            </div>
+
+            <a href="ContactUs.html" class="cta-button">Contact Us Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>At Triple M Insurance, we believe that insurance should be simple, reliable, and tailored to your unique needs. As a trusted brokerage firm, we offer a wide range of insurance solutions—including health, auto, home, business, and more, ensuring that you, your loved ones, and your assets are always protected.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16D8Taxmg2/?mibextid=wwXIfr">FB</a>
+                    <a href="https://www.instagram.com/triple_m_insurance?igsh=MXV4cDR6dDBreDYxcg%3D%3D&utm_source=qr">IN</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="services.html">Our Services</a></p>
+                <p><a href="aboutus.html">About Us</a></p>
+                <p><a href="ContactUs.html">Contact Us</a></p>
+            
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Lebaa-Jezzine</p>
+                <p>South Lebanon</p>
+                <p>Office Phone: (+961) 7-231420</p>
+                <p>Mobile: (+961) 3-272684</p>
+                <p>Email: info@triplem-insurance.com</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 Triple M Insurance. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

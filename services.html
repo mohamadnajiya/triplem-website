@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Triple M Insurance</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 64px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav ul li a.active {
+            color: #4285F4;
+            font-weight: 600;
+        }
+
+        .contact-btn {
+            background-color: #4285F4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Page title */
+        .page-title {
+            background-color: #4285F4;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .page-title h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .page-title p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Services section */
+        .services-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .services-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-intro h2 {
+            color: #4285F4;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .services-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Services grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-image {
+            height: 200px;
+            background-color: #e9e9e9;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            color: #4285F4;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            display: inline-block;
+            color: #4285F4;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .service-link:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #4285F4;
+            bottom: -4px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .service-link:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Service categories */
+        .service-categories {
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .category-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #4285F4;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Get quote section */
+        .get-quote {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            margin-top: 60px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .get-quote h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .get-quote p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .quote-btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .quote-btn:hover {
+            background-color: #3e8e41;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            width: 30%;
+            margin-bottom: 20px;
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #4285F4;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #4285F4;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #4285F4;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-title {
+                padding: 40px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-section {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="tripplem-logo.png" alt="Triple M Insurance Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <!-- <li><a href="#">Products</a></li> -->
+                <li><a href="aboutus.html">About</a></li>
+                <!-- <li><a href="#">Blog</a></li> -->
+            </ul>
+        </nav>
+        <a href="ContactUs.html" class="contact-btn">Contact Us</a>
+    </header>
+
+    <section class="page-title">
+        <h1>Our Services</h1>
+        <p>Comprehensive insurance solutions tailored to your needs</p>
+    </section>
+
+    <section class="services-section">
+        <div class="services-container">
+            <div class="services-intro">
+                <h2>Insurance Solutions for Every Need</h2>
+                <p>
+                    At Triple M Insurance, we offer a comprehensive range of insurance services designed to protect 
+                    what matters most to you. Our team of experts will help you navigate the complex world of insurance 
+                    and find the perfect coverage options for your unique situation.
+                </p>
+            </div>
+
+            <div class="service-categories">
+                <h3 class="category-title">Personal Insurance</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Motor Insurance</h3>
+                            <p>Protect your vehicle with comprehensive coverage options including third-party liability, 
+                            comprehensive coverage, and collision protection. We offer competitive rates for cars, motorcycles, 
+                            and commercial vehicles.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Life & Personal Accident</h3>
+                            <p>Secure your family's financial future with our life insurance and personal accident coverage. 
+                            Our policies provide peace of mind knowing your loved ones will be protected financially in case of 
+                            unexpected events.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Medical Insurance</h3>
+                            <p>Take care of your health with our comprehensive medical insurance plans. We offer individual and 
+                            family coverage with options for outpatient care, hospitalization, medications, and specialized treatments.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Home Insurance</h3>
+                            <p>Protect your most valuable asset with our home insurance policies. Coverage includes protection against 
+                            fire, theft, natural disasters, and liability, ensuring your home and belongings are secure.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Travel Insurance</h3>
+                            <p>Travel with confidence knowing you're protected against unexpected events. Our travel insurance 
+                            covers medical emergencies, trip cancellations, lost baggage, and more for both domestic and international travel.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-categories">
+                <h3 class="category-title">Business Insurance</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Business Insurance</h3>
+                            <p>Comprehensive protection for your business operations, assets, and employees. Our business insurance 
+                            solutions are tailored to your industry and specific needs, from small businesses to large corporations.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Financial Lines Insurance</h3>
+                            <p>Protect your business against financial risks with our specialized financial lines insurance. 
+                            Coverage includes professional indemnity, directors and officers liability, and cyber risk protection.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Engineering Insurance</h3>
+                            <p>Specialized coverage for construction projects, machinery, and equipment. Our engineering insurance 
+                            protects against risks associated with construction, installation, and operational phases of projects.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Liability Insurance</h3>
+                            <p>Comprehensive liability coverage to protect your business from third-party claims. Options include 
+                            general liability, product liability, public liability, and employer's liability insurance.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Marine Insurance</h3>
+                            <p>Protect your cargo, vessels, and marine operations with our comprehensive marine insurance solutions. 
+                            Coverage includes hull and machinery, cargo, marine liability, and freight insurance.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-categories">
+                <h3 class="category-title">Specialized Insurance</h3>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Expatriate Insurance</h3>
+                            <p>Comprehensive coverage for individuals and families living abroad. Our expatriate insurance includes 
+                            medical care, emergency evacuation, personal property, and liability protection tailored to your destination.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Fine Arts & Jewelry</h3>
+                            <p>Specialized coverage for your valuable collections and precious items. Our fine arts and jewelry 
+                            insurance provides worldwide protection against theft, damage, and loss for your cherished possessions.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Fire and Burglary</h3>
+                            <p>Protect your property and assets against fire, theft, and burglary. Our comprehensive coverage 
+                            ensures quick recovery and financial protection in case of unexpected events.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Money & Fidelity</h3>
+                            <p>Protect your business against financial losses due to employee dishonesty or theft of money. 
+                            Our money and fidelity insurance covers cash in transit, on premises, and employee fraud.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('/api/placeholder/400/200')"></div>
+                        <div class="service-content">
+                            <h3>Political Violence</h3>
+                            <p>Specialized coverage for businesses operating in regions with political instability. Our political 
+                            violence insurance protects against terrorism, riots, civil commotion, and related risks.</p>
+                            <a href="ContactUs.html" class="service-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="get-quote">
+                <h2>Need Help Choosing the Right Insurance?</h2>
+                <p>Our team of insurance experts is ready to help you find the perfect coverage for your specific needs. 
+                Contact us today for a free consultation and personalized quote.</p>
+                <a href="ContactUs.html" class="quote-btn">Get a Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>At Triple M Insurance, we believe that insurance should be simple, reliable, and tailored to your unique needs. As a trusted brokerage firm, we offer a wide range of insurance solutions—including health, auto, home, business, and more, ensuring that you, your loved ones, and your assets are always protected.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16D8Taxmg2/?mibextid=wwXIfr">FB</a>
+                    <a href="https://www.instagram.com/triple_m_insurance?igsh=MXV4cDR6dDBreDYxcg%3D%3D&utm_source=qr">IN</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="services.html">Our Services</a></p>
+                <p><a href="aboutus.html">About Us</a></p>
+                <p><a href="ContactUs.html">Contact Us</a></p>
+                <!-- <p><a href="#">FAQ</a></p> -->
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Lebaa-Jezzine</p>
+                <p>South Lebanon</p>
+                <p>Office Phone: (+961) 7-231420</p>
+                <p>Mobile: (+961) 3-272684</p>
+                <p>Email: info@triplem-insurance.com</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 Triple M Insurance. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

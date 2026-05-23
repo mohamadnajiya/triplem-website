@@ -1,0 +1,13 @@
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Cloudflare Pages build cache (if any)
+.cache/
+
+# Secrets (just in case)
+.env
+.env.*

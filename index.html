@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple M Insurance</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 64px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-btn {
+            background-color: #4285F4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Hero section */
+        .hero {
+            background-image: url('backgroundMain.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: white;
+            padding: 140px 50px;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero::before {
+            /* content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 28px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            line-height: 1.4;
+        }
+
+        .cta-btn {
+            background-color: white;
+            color: #333;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #4285F4;
+            color: white;
+        }
+
+        .info-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .info-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Services section */
+        .services {
+            background-color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .service-item {
+            width: 220px;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background-color: #4285F4;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+
+        .service-icon svg {
+            width: 50px;
+            height: 50px;
+            color: white;
+        }
+
+        .service-item h3 {
+            color: #4285F4;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .service-item p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Navigation menu */
+        .navigation-menu {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+            background-color: white;
+            border-top: 1px solid #eee;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navigation-menu a {
+            color: #4285F4;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navigation-menu a:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            width: 30%;
+            margin-bottom: 20px;
+            text-align: left;
+            padding: 0 15px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #4285F4;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #4285F4;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                margin-bottom: 15px;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 22px;
+            }
+
+            .services-container {
+                padding: 0 20px;
+            }
+
+            .footer-section {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Responsive enhancements - Add these to your existing CSS */
+
+        /* Base responsive improvements */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Better responsive header */
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+
+        /* Medium screen adjustments */
+        @media screen and (max-width: 992px) {
+            .services-container {
+                justify-content: center;
+            }
+
+            .service-item {
+                width: 45%;
+                min-width: 280px;
+            }
+
+            .footer-section {
+                width: 45%;
+            }
+        }
+
+        /* Small screen adjustments */
+        @media screen and (max-width: 576px) {
+            .hero {
+                padding: 50px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .hero p {
+                font-size: 18px;
+                margin-bottom: 30px;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .cta-btn,
+            .info-btn {
+                width: 100%;
+                text-align: center;
+                margin-right: 0;
+            }
+
+            .service-item {
+                width: 100%;
+            }
+
+            .footer-section {
+                width: 100%;
+            }
+        }
+
+        /* Fix for service icons on mobile */
+        @media screen and (max-width: 480px) {
+            .service-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .service-icon svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Fix for footer on smaller screens */
+        @media screen and (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+
+            .footer-section {
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Custom utility classes */
+        .text-center-sm {
+            text-align: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .text-center-sm {
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+        /* Responsive background image - Replace your current hero background CSS with this */
+
+        .hero {
+            /* Keep your existing background image path */
+            background-image: url('backgroundMain.jpg');
+
+            /* These settings ensure responsive behavior */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            /* For better performance on mobile devices */
+            background-attachment: scroll;
+            /* Changed from fixed to prevent mobile rendering issues */
+
+            /* Keep your existing styles */
+            color: white;
+            padding: 140px 50px;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Add media queries for specific device optimizations */
+        @media screen and (max-width: 768px) {
+            .hero {
+                padding: 60px 30px;
+                /* Adjust background position for mobile - often top looks better on narrow screens */
+                background-position: center top;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero {
+                padding: 40px 20px;
+                /* For very small screens, you might want to use a more focused part of the image */
+                background-position: 70% top;
+                /* Adjust percentage to focus on important parts */
+            }
+        }
+
+        /* Optional: Add a higher opacity overlay on mobile for better text readability */
+        @media screen and (max-width: 768px) {
+            .hero::before {
+                background: rgba(0, 0, 0, 0.4);
+                /* Slightly darker overlay on mobile */
+            }
+        }
+
+        /* Add this CSS to fix the services display on mobile */
+
+        /* Add a services title that was missing */
+        .services-title {
+            margin-bottom: 40px;
+            color: #4285F4;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        /* Mobile-specific service item styling */
+        @media screen and (max-width: 768px) {
+            .services-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+                padding: 0 15px;
+            }
+
+            .service-item {
+                width: 100%;
+                margin: 0;
+                min-width: auto;
+            }
+
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 10px;
+            }
+
+            .service-icon svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            .service-item h3 {
+                font-size: 16px;
+                margin-bottom: 8px;
+            }
+
+            .service-item p {
+                font-size: 12px;
+                line-height: 1.4;
+            }
+        }
+
+        /* Extra small screens - one column layout */
+        @media screen and (max-width: 480px) {
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+
+            .service-item {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+
+        /* Make sure the services section has enough padding */
+        .services {
+            padding: 40px 0;
+        }
+
+        /* Hide long descriptions on very small screens to save space */
+        @media screen and (max-width: 360px) {
+            .service-item p {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                max-height: 2.8em;
+            }
+        }
+    </style>
+  
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="tripplem-logo.png" alt="Triple M Insurance Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <!-- <li><a href="#">Products</a></li> -->
+                <li><a href="aboutus.html">About</a></li>
+                <!-- <li><a href="#">Blog</a></li> -->
+            </ul>
+        </nav>
+        <a href="ContactUs.html" class="contact-btn">Contact Us</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Insurance</h1>
+       
+            <p>Protect what matters most, more, and more</p>
+            <div class="hero-buttons">
+                <a href="ContactUs.html" class="cta-btn">Get A Quote</a>
+                <a href="mechanic.html" class="info-btn">Mechanic Fee Calculator Section</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2 class="services-title">Our Insurance Services</h2>
+        <div class="services-container">
+            <!-- Car Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                        <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                        <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5"></path>
+                    </svg>
+                </div>
+                <h3>Motor Insurance</h3>
+                <p>Comprehensive coverage for your vehicle with competitive rates and excellent service.</p>
+            </div>
+
+            <!-- Life Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M12 2l.642 .005l.616 .017l.299 .013l.579 .034l.553 .046c4.687 .455 6.65 2.333 7.166 6.906l.03 .29l.046 .553l.041 .727l.006 .15l.017 .617l.005 .642l-.005 .642l-.017 .616l-.013 .299l-.034 .579l-.046 .553c-.455 4.687 -2.333 6.65 -6.906 7.166l-.29 .03l-.553 .046l-.727 .041l-.15 .006l-.617 .017l-.642 .005l-.642 -.005l-.616 -.017l-.299 -.013l-.579 -.034l-.553 -.046c-4.687 -.455 -6.65 -2.333 -7.166 -6.906l-.03 -.29l-.046 -.553l-.041 -.727l-.006 -.15l-.017 -.617l-.004 -.642l.004 -.642l.017 -.616l.013 -.299l.034 -.579l.046 -.553c.455 -4.687 2.333 -6.65 6.906 -7.166l.29 -.03l.553 -.046l.727 -.041l.15 -.006l.617 -.017c.21 -.003 .424 -.005 .642 -.005z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h3>Life & Personal Accident</h3>
+                <p>Protect your loved ones' financial future with reliable life and personal accident insurance.</p>
+            </div>
+
+            <!-- Health Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 19h8a4 4 0 0 0 4-4v-8a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4z"></path>
+                        <path d="M8 9h8"></path>
+                        <path d="M8 13h6"></path>
+                        <path d="M8 17h4"></path>
+                    </svg>
+                </div>
+                <h3>Medical Insurance</h3>
+                <p>Comprehensive healthcare coverage for individuals and families with access to quality medical care.
+                </p>
+            </div>
+
+            <!-- Home Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 21l18 0"></path>
+                        <path d="M5 21v-14l8 -4v18"></path>
+                        <path d="M13 7l6 0"></path>
+                        <path d="M13 11l6 0"></path>
+                        <path d="M13 15l6 0"></path>
+                        <path d="M13 19l6 0"></path>
+                    </svg>
+                </div>
+                <h3>Home Insurance</h3>
+                <p>Protect your property from unforeseen events with tailored home insurance options.</p>
+            </div>
+
+            <!-- Business Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z">
+                        </path>
+                        <path d="M9 13l-2 2"></path>
+                        <path d="M13 13l-2 2"></path>
+                        <path d="M17 13l-2 2"></path>
+                        <path d="M9 17l-2 2"></path>
+                        <path d="M13 17l-2 2"></path>
+                        <path d="M17 17l-2 2"></path>
+                        <path d="M20 8h-16"></path>
+                        <path d="M20 12h-16"></path>
+                        <path d="M11 3v17"></path>
+                        <path d="M15 3v17"></path>
+                    </svg>
+                </div>
+                <h3>Business Insurance</h3>
+                <p>Protect your business with customized insurance solutions for various risks and liabilities.</p>
+            </div>
+
+            <!-- Financial Lines Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 11h1a3 3 0 0 1 0 6h-1"></path>
+                        <path d="M6 11h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H6"></path>
+                        <path d="M12 21V3"></path>
+                    </svg>
+                </div>
+                <h3>Financial Lines Insurance</h3>
+                <p>Specialized insurance products to protect against financial risks, liabilities, and professional
+                    misconduct.</p>
+            </div>
+
+            <!-- Engineering Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 6V4"></path>
+                        <path d="M18 12h2"></path>
+                        <path d="M12 18v2"></path>
+                        <path d="M6 12H4"></path>
+                        <path d="M16 8l1.5-1.5"></path>
+                        <path d="M19.5 14.5L18 16"></path>
+                        <path d="m6 16-1.5-1.5"></path>
+                        <path d="M8 8 6.5 6.5"></path>
+                        <path d="M14 12a2 2 0 1 0-4 0 2 2 0 0 0 4 0z"></path>
+                    </svg>
+                </div>
+                <h3>Engineering Insurance</h3>
+                <p>Protection for construction projects, machinery, and engineering equipment from unforeseen damages.
+                </p>
+            </div>
+
+            <!-- Expatriate Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12h20"></path>
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                </div>
+                <h3>Expatriate Insurance</h3>
+                <p>Comprehensive coverage for individuals living or working abroad, including healthcare and liability
+                    protection.</p>
+            </div>
+
+            <!-- Fine Arts & Jewelry -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0z"></path>
+                        <path d="M12 4V2"></path>
+                        <path d="M5 8l-2-2"></path>
+                        <path d="M19 8l2-2"></path>
+                        <path d="M5 16l-2 2"></path>
+                        <path d="M19 16l2 2"></path>
+                        <path d="M12 20v2"></path>
+                    </svg>
+                </div>
+                <h3>Fine Arts & Jewelry</h3>
+                <p>Specialized coverage for valuable art collections, antiques, and precious jewelry items with expert
+                    appraisal services.</p>
+            </div>
+
+            <!-- Fire and Burglary -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 12a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4h4"></path>
+                        <path d="M17 12h3v4h-3"></path>
+                        <path d="M10 8V6"></path>
+                        <path d="M20 8V6"></path>
+                        <path d="M14 16v2"></path>
+                    </svg>
+                </div>
+                <h3>Fire and Burglary</h3>
+                <p>Protection against property loss or damage caused by fire, theft, and burglary with quick claim
+                    settlement.</p>
+            </div>
+
+            <!-- Liability Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 11h4"></path>
+                        <path d="M12 17h.01"></path>
+                        <path d="M12 3c-1.333 0-2.618.25-3.854.743m7.709 0c-1.25-.5-2.518-.743-3.854-.743"></path>
+                        <path
+                            d="M9 5h6a6 6 0 0 1 5 9c.006.924-.32 1.82-.844 2.48L16 22h-8l-3.156-5.52A3.975 3.975 0 0 1 4 14a6 6 0 0 1 5-9">
+                        </path>
+                    </svg>
+                </div>
+                <h3>Liability Insurance</h3>
+                <p>Coverage for legal liabilities arising from third-party claims for bodily injury, property damage, or
+                    other losses.</p>
+            </div>
+
+            <!-- Marine Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 20a6 6 0 0 0 12 0c0-4-3-6-6-8-3 2-6 4-6 8z"></path>
+                        <path d="M12 12c3 2 6 4 6 8a6 6 0 0 1-12 0"></path>
+                        <path d="M12 2v7"></path>
+                        <path d="M12 7l-2-2"></path>
+                        <path d="M12 7l2-2"></path>
+                    </svg>
+                </div>
+                <h3>Marine Insurance</h3>
+                <p>Protection for cargo, vessels, and marine operations against risks during transportation by sea, air,
+                    or land.</p>
+            </div>
+
+            <!-- Money & Fidelity -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20"></path>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <h3>Money & Fidelity</h3>
+                <p>Insurance for cash in transit, cash at premises, and protection against employee dishonesty or fraud.
+                </p>
+            </div>
+
+            <!-- Political Violence -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a2 2 0 0 1 2 2v7a2 2 0 1 1-4 0V4a2 2 0 0 1 2-2z"></path>
+                        <path d="M12 18v4"></path>
+                        <path d="M8 22h8"></path>
+                    </svg>
+                </div>
+                <h3>Political Violence</h3>
+                <p>Coverage against damages caused by riots, strikes, civil commotion, terrorism, and other political
+                    risks.</p>
+            </div>
+
+            <!-- Travel Insurance -->
+            <div class="service-item">
+                <div class="service-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 22h20"></path>
+                        <path d="M12 2v4"></path>
+                        <path d="M10 12L2 9 2 13l8 3Z"></path>
+                        <path d="M14 12l8-3v4l-8 3Z"></path>
+                    </svg>
+                </div>
+                <h3>Travel Insurance</h3>
+                <p>Comprehensive protection for travelers including medical emergencies, trip cancellations, lost
+                    baggage, and more.</p>
+            </div>
+        </div>
+
+        <!-- <div class="view-all-services">
+            <a href="#" class="view-all-btn">View All Insurance Services</a>
+        </div> -->
+    </section>
+
+    <!-- <div class="navigation-menu">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div> -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>At Triple M Insurance, we believe that insurance should be simple, reliable, and tailored to your
+                    unique needs. As a trusted brokerage firm, we offer a wide range of insurance solutions—including
+                    health, auto, home, business, and more ,ensuring that you, your loved ones, and your assets are
+                    always protected.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/16D8Taxmg2/?mibextid=wwXIfr">FB</a>
+
+                    <a
+                        href="https://www.instagram.com/triple_m_insurance?igsh=MXV4cDR6dDBreDYxcg%3D%3D&utm_source=qr">IN</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="services.html">Our Services</a></p>
+                <p><a href="aboutus.html">About Us</a></p>
+                <p><a href="ContactUs.html">Contact Us</a></p>
+
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Lebaa</p>
+                <p>Jezzine</p>
+                <p>Office Phone: (+961) 7-231420</p>
+                <p>Mobile: (+961) 3-272684</p>
+                <p>Email: info@triplem-insurance.com</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 Triple M Insurance. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
